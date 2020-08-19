@@ -44,11 +44,11 @@ class SiteOrDomain extends Component {
 
 	getChoices() {
 		const { translate } = this.props;
-
+		translate( '**New string**' );
 		const choices = [
 			{
 				type: 'page',
-				label: translate( 'New site' ),
+				label: translate( 'New site **edited**' ),
 				image: <NewSiteImage />,
 				description: translate(
 					'Choose a theme, customize, and launch your site. A free domain for one year is included with all plans.'

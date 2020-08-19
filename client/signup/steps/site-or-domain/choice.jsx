@@ -19,6 +19,8 @@ export default class SiteOrDomainChoice extends Component {
 	render() {
 		const { choice, isPlaceholder } = this.props;
 
+		translate( '**New string**' );
+
 		if ( isPlaceholder ) {
 			return (
 				<div
@@ -35,6 +37,8 @@ export default class SiteOrDomainChoice extends Component {
 				</div>
 			);
 		}
+
+		translate( '**Different new string**' );
 
 		return (
 			<div className="site-or-domain__choice" data-e2e-type={ choice.type } key={ choice.type }>
