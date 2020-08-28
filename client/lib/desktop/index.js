@@ -17,15 +17,17 @@ import { getReduxStore } from 'lib/redux-bridge';
 import { isEditorIframeLoaded } from 'state/editor/selectors';
 import isNotificationsOpen from 'state/selectors/is-notifications-open';
 import { toggleNotificationsPanel, navigate } from 'state/ui/actions';
+import { recordTracksEvent as recordTracksEventAction } from 'state/analytics/actions';
 import {
 	NOTIFY_DESKTOP_CANNOT_USE_EDITOR,
 	NOTIFY_DESKTOP_DID_REQUEST_SITE,
 	NOTIFY_DESKTOP_DID_ACTIVATE_JETPACK_MODULE,
 	NOTIFY_DESKTOP_SEND_TO_PRINTER,
 	NOTIFY_DESKTOP_NOTIFICATIONS_UNSEEN_COUNT_SET,
+	NOTIFY_DESKTOP_NEW_NOTIFICATION,
 	NOTIFY_DESKTOP_VIEW_POST_CLICKED,
 } from 'state/desktop/window-events';
-import { canCurrentUserManageSiteOptions } from 'state/sites/selectors';
+import { canCurrentUserManageSiteOptions, getSiteTitle } from 'state/sites/selectors';
 import { activateModule } from 'state/jetpack/modules/actions';
 import { requestSite } from 'state/sites/actions';
 
@@ -49,6 +51,7 @@ const Desktop = {
 		ipc.on( 'signout', this.onSignout.bind( this ) );
 		ipc.on( 'toggle-notification-bar', this.onToggleNotifications.bind( this ) );
 		ipc.on( 'close-notifications-panel', this.onCloseNotificationsPanel.bind( this ) );
+		ipc.on( 'notification-clicked', this.onNotificationClicked.bind( this ) );
 		ipc.on( 'page-help', this.onShowHelp.bind( this ) );
 		ipc.on( 'navigate', this.onNavigate.bind( this ) );
 		ipc.on( 'request-site', this.onRequestSite.bind( this ) );
@@ -68,6 +71,8 @@ const Desktop = {
 			NOTIFY_DESKTOP_NOTIFICATIONS_UNSEEN_COUNT_SET,
 			this.onUnseenCountUpdated.bind( this )
 		);
+
+		window.addEventListener( NOTIFY_DESKTOP_NEW_NOTIFICATION, this.onNewNotification.bind( this ) );
 
 		window.addEventListener( NOTIFY_DESKTOP_SEND_TO_PRINTER, this.onSendToPrinter.bind( this ) );
 
@@ -113,6 +118,73 @@ const Desktop = {
 		const { unseenCount } = event.detail;
 		debug( `Sending unseen count: ${ unseenCount }` );
 		ipc.send( 'unread-notices-count', unseenCount );
+	},
+
+	onNewNotification: function ( event ) {
+		const noteWithMeta = event.detail;
+		const { note } = noteWithMeta;
+		debug( `Received notification: ${ note.id }` );
+		const siteTitle = getSiteTitle( this.store.getState(), note.meta.ids.site );
+		ipc.send( `received-notification`, {
+			siteTitle,
+			...noteWithMeta,
+		} );
+	},
+
+	// TODO: Refactor this to another file but not sure how ???
+	onNotificationClicked: function ( _, noteWithMeta ) {
+		const { note, isApproved } = noteWithMeta;
+
+		debug( `Notification ${ note.id } clicked` );
+
+		// post, comment, site else toggle notification panel open.
+		const linkType = note.type;
+		const siteId = note.meta.ids.site;
+		const postId = note.meta.ids.post;
+		const commentId = note.meta.ids.comment;
+
+		switch ( linkType ) {
+			case 'post':
+				{
+					this.store.dispatch( recordTracksEventAction( 'calypso_notifications_open_post' ), {
+						site_id: siteId,
+						post_id: postId,
+					} );
+					this.navigate( `/read/blogs/${ siteId }/posts/${ postId }` );
+				}
+				break;
+			case 'comment':
+			case 'comment_like':
+				{
+					this.store.dispatch( recordTracksEventAction( 'calypso_notifications_open_comment' ), {
+						site_id: siteId,
+						post_id: postId,
+						comment_id: commentId,
+					} );
+
+					// if note requires approval, display the notifications panel in Calypso,
+					// otherwise navigate to comment URL.
+					if ( isApproved ) {
+						debug( 'Not approved...' );
+						this.navigate( `/read/blogs/${ siteId }/posts/${ postId }#comment-${ commentId }` );
+					} else if ( ! isNotificationsOpen( this.store.getState() ) ) {
+						debug( 'Not is not approved...' );
+						this.navigate( '/' );
+						this.toggleNotificationsPanel();
+					}
+				}
+				break;
+			case 'site':
+				{
+					this.store.dispatch( recordTracksEventAction( 'calypso_notifications_open_site' ), {
+						site_id: siteId,
+					} );
+					this.navigate( `/read/blogs/${ siteId }` );
+				}
+				break;
+			// TODO: What about "OPEN_LINK" (requires href, do we need this?)
+			// default: open Notifications panel and no-op.
+		}
 	},
 
 	sendUserLoginStatus: function () {

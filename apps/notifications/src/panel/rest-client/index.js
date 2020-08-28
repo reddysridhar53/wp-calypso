@@ -7,6 +7,7 @@ import { store } from '../state';
 import actions from '../state/actions';
 
 import getAllNotes from '../state/selectors/get-all-notes';
+import getIsNoteApproved from '../state/selectors/get-is-note-approved';
 
 import repliesCache from '../comment-replies-cache';
 
@@ -313,18 +314,29 @@ function getNotesList() {
 function ready() {
 	const notes = getAllNotes( store.getState() );
 
-	const timestamps = notes
-		.map( property( 'timestamp' ) )
-		.map( ( timestamp ) => Date.parse( timestamp ) / 1000 );
+	let newNotes = notes.filter(
+		( note ) => Date.parse( note.timestamp ) / 1000 > this.lastSeenTime
+	);
 
-	let newNoteCount = timestamps.filter( ( time ) => time > this.lastSeenTime ).length;
+	let newNoteCount = newNotes.length;
 
 	if ( ! this.firstRender && this.lastSeenTime === 0 ) {
 		newNoteCount = 0;
+		newNotes = [];
 	}
 
 	const latestType = get( notes.slice( -1 )[ 0 ], 'type', null );
 	store.dispatch( { type: 'APP_RENDER_NOTES', newNoteCount, latestType } );
+
+	for ( let i = 0; i < newNotes.length; i++ ) {
+		const note = newNotes[ i ];
+		if ( setlatestTimestampSeen( note.timestamp ) ) {
+			debug( 'Dispatching note to desktop app: ', note );
+
+			const isApproved = getIsNoteApproved( store.getState(), note );
+			store.dispatch( { type: 'NOTIFY_DESKTOP_NEW_NOTE', note, isApproved } );
+		}
+	}
 
 	this.hasNewNoteData = false;
 	this.firstRender = false;
@@ -498,6 +510,24 @@ function setVisibility( { isShowing, isVisible } ) {
 		this.updateLastSeenTime( 0 );
 		this.main();
 	}
+}
+
+// Persists the latest note timestamp sent to the Desktop app.
+function setlatestTimestampSeen( timestamp ) {
+	const parsedTimestamp = Date.parse( timestamp );
+	const latestTimestamp = localStorage.getItem( 'desktop_latest_timestamp_seen' ) || 0;
+
+	if ( parsedTimestamp > latestTimestamp ) {
+		debug( 'Update desktop_latest_timestamp_seen: ', parsedTimestamp );
+
+		try {
+			localStorage.setItem( 'desktop_latest_timestamp_seen', parsedTimestamp );
+			return true;
+		} catch ( e ) {
+			debug( 'Failed to set desktop_latest_timestamp_seen: ', e.message );
+		}
+	}
+	return false;
 }
 
 Client.prototype.main = main;

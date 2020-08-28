@@ -25,6 +25,7 @@ import { recordTracksEvent as recordTracksEventAction } from 'wp-calypso-client/
 import getCurrentLocaleSlug from 'wp-calypso-client/state/selectors/get-current-locale-slug';
 import getCurrentLocaleVariant from 'wp-calypso-client/state/selectors/get-current-locale-variant';
 import { setUnseenCount } from 'wp-calypso-client/state/notifications';
+import { notifyDesktopNewNote } from 'wp-calypso-client/state/desktop/actions';
 
 /**
  * Internal dependencies
@@ -235,6 +236,11 @@ export class Notifications extends Component {
 					page( `/comment/${ siteId }/${ commentId }?action=edit` );
 				},
 			],
+			NOTIFY_DESKTOP_NEW_NOTE: [
+				( store, { note, isApproved } ) => {
+					this.props.notifyDesktopNewNote( note, isApproved );
+				},
+			],
 		};
 
 		return (
@@ -264,5 +270,6 @@ export default connect(
 	{
 		recordTracksEventAction,
 		setUnseenCount,
+		notifyDesktopNewNote,
 	}
 )( Notifications );
