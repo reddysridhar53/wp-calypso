@@ -245,4 +245,13 @@ export default {
 		allowExistingUsers: true,
 		localeTargets: [ 'en' ],
 	},
+	oneClickUpsell: {
+		datestamp: '20200909',
+		variations: {
+			test: 50,
+			control: 50,
+		},
+		defaultVariation: 'control',
+		allowExistingUsers: true,
+	},
 };
