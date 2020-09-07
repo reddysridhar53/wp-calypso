@@ -74,6 +74,7 @@ export function* createSite(
 				font_headings: selectedFonts.headings,
 			} ),
 			use_patterns: isEnabled( 'gutenboarding/use-patterns' ),
+			public_coming_soon: isEnabled( 'gutenboarding/public-coming-soon' ) || undefined,
 		},
 		...( bearerToken && { authToken: bearerToken } ),
 	};
