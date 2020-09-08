@@ -2,6 +2,7 @@
 	@at-root {
 		input[type='url'],
 		input[type='tel'],
+		input[type='number'],
 		input[type='search'] {
 			@extend %form-field;
 		}
