@@ -42,7 +42,7 @@ export function* __internalGetDomainSuggestions(
 		} );
 	} catch ( e ) {
 		// e.g. no connection, or JSON parsing error
-		return receiveDomainSuggestionsError( `Error while fetching server response, ${ e.message }` );
+		return receiveDomainSuggestionsError( e.message || 'Error while fetching server response' );
 	}
 
 	if ( ! suggestions || suggestions === '' ) {
