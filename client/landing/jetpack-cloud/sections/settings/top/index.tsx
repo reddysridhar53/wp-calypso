@@ -8,10 +8,10 @@ import React, { FunctionComponent } from 'react';
  * Internal dependencies
  */
 import { Card } from '@automattic/components';
-import DocumentHead from 'components/data/document-head';
-import Main from 'components/main';
-import SidebarNavigation from 'my-sites/sidebar-navigation';
-import StepProgress from 'components/step-progress';
+import DocumentHead from 'calypso/components/data/document-head';
+import Main from 'calypso/components/main';
+import SidebarNavigation from 'calypso/my-sites/sidebar-navigation';
+import StepProgress from 'calypso/components/step-progress';
 import { ConnectionStatus, StatusState } from './connection-status';
 
 /**

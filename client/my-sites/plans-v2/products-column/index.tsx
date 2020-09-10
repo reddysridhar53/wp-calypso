@@ -11,12 +11,12 @@ import { useSelector } from 'react-redux';
 import { slugToSelectorProduct, getJetpackDescriptionWithOptions } from '../utils';
 import { PRODUCTS_TYPES, SELECTOR_PRODUCTS } from '../constants';
 import ProductCard from '../product-card';
-import FormattedHeader from 'components/formatted-header';
-import { getPlan } from 'lib/plans';
-import { JETPACK_PRODUCTS_LIST } from 'lib/products-values/constants';
-import { getCurrentUserCurrencyCode } from 'state/current-user/selectors';
-import getSitePlan from 'state/sites/selectors/get-site-plan';
-import getSiteProducts from 'state/sites/selectors/get-site-products';
+import FormattedHeader from 'calypso/components/formatted-header';
+import { getPlan } from 'calypso/lib/plans';
+import { JETPACK_PRODUCTS_LIST } from 'calypso/lib/products-values/constants';
+import { getCurrentUserCurrencyCode } from 'calypso/state/current-user/selectors';
+import getSitePlan from 'calypso/state/sites/selectors/get-site-plan';
+import getSiteProducts from 'calypso/state/sites/selectors/get-site-products';
 
 /**
  * Type dependencies

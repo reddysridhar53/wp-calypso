@@ -9,8 +9,8 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import FormattedHeader from 'components/formatted-header';
-import { FLOW_TYPES } from 'state/jetpack-connect/constants';
+import FormattedHeader from 'calypso/components/formatted-header';
+import { FLOW_TYPES } from 'calypso/state/jetpack-connect/constants';
 import { retrievePlan } from './persistence-utils';
 
 class JetpackConnectMainHeader extends Component {

@@ -7,11 +7,11 @@ import { translate } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import PlansNavigation from 'my-sites/plans/navigation';
-import CartData from 'components/data/cart';
-import FormattedHeader from 'components/formatted-header';
-import Notice from 'components/notice';
-import { getSelectedSiteId } from 'state/ui/selectors';
+import PlansNavigation from 'calypso/my-sites/plans/navigation';
+import CartData from 'calypso/components/data/cart';
+import FormattedHeader from 'calypso/components/formatted-header';
+import Notice from 'calypso/components/notice';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
 
 const StandardPlansHeader = () => (
 	<>

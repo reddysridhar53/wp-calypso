@@ -11,8 +11,8 @@ import moment from 'moment';
  * Internal dependencies
  */
 import FormattedDate from '../';
-import { setLocale } from 'state/ui/language/actions';
-import getCurrentLocaleSlug from 'state/selectors/get-current-locale-slug';
+import { setLocale } from 'calypso/state/ui/language/actions';
+import getCurrentLocaleSlug from 'calypso/state/selectors/get-current-locale-slug';
 
 class FormattedDateExample extends PureComponent {
 	static displayName = 'FormattedDateExample';

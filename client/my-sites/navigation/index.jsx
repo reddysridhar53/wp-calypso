@@ -7,9 +7,9 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import config from 'config';
-import SitePicker from 'my-sites/picker';
-import AsyncLoad from 'components/async-load';
+import config from 'calypso/config';
+import SitePicker from 'calypso/my-sites/picker';
+import AsyncLoad from 'calypso/components/async-load';
 
 class MySitesNavigation extends React.Component {
 	static displayName = 'MySitesNavigation';
@@ -27,9 +27,9 @@ class MySitesNavigation extends React.Component {
 		};
 
 		const asyncSidebar = config.isEnabled( 'jetpack-cloud' ) ? (
-			<AsyncLoad require="components/jetpack/sidebar" { ...asyncProps } />
+			<AsyncLoad require="calypso/components/jetpack/sidebar" { ...asyncProps } />
 		) : (
-			<AsyncLoad require="my-sites/sidebar" { ...asyncProps } />
+			<AsyncLoad require="calypso/my-sites/sidebar" { ...asyncProps } />
 		);
 
 		return (

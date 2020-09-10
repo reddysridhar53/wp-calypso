@@ -7,9 +7,9 @@ import React, { PureComponent } from 'react';
 /**
  * Internal dependencies
  */
-import Popover from 'components/popover';
-import PopoverMenu from 'components/popover/menu';
-import PopoverMenuItem from 'components/popover/menu-item';
+import Popover from 'calypso/components/popover';
+import PopoverMenu from 'calypso/components/popover/menu';
+import PopoverMenuItem from 'calypso/components/popover/menu-item';
 
 const customPosition = { top: 300, left: 500 };
 

@@ -7,22 +7,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { identity, noop, sample } from 'lodash';
 import store from 'store';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal dependencies
  */
 import { localize } from 'i18n-calypso';
-import { recordTracksEvent } from 'state/analytics/actions';
+import { recordTracksEvent } from 'calypso/state/analytics/actions';
 import { Dialog } from '@automattic/components';
-import { fetchUserSettings } from 'state/user-settings/actions';
-import getUserSettings from 'state/selectors/get-user-settings';
-import { sendEmailLogin } from 'state/auth/actions';
+import { fetchUserSettings } from 'calypso/state/user-settings/actions';
+import getUserSettings from 'calypso/state/selectors/get-user-settings';
+import { sendEmailLogin } from 'calypso/state/auth/actions';
 
 /**
  * Image dependencies
  */
-import wordpressLogoImage from 'assets/images/illustrations/logo-jpc.svg';
+import wordpressLogoImage from 'calypso/assets/images/illustrations/logo-jpc.svg';
 
 /**
  * Style dependencies

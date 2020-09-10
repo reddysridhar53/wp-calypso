@@ -50,15 +50,15 @@ import {
 	PLAN_JETPACK_PREMIUM,
 	PLAN_JETPACK_PREMIUM_MONTHLY,
 	PLAN_JETPACK_BUSINESS,
-} from 'lib/plans/constants';
+} from 'calypso/lib/plans/constants';
 
 /**
  * Internal dependencies
  */
 import { calculatePlanCredits, isPrimaryUpgradeByPlanDelta, PlanFeatures } from '../index';
 
-import { getPlanDiscountedRawPrice } from 'state/sites/plans/selectors';
-import { getPlanRawPrice } from 'state/plans/selectors';
+import { getPlanDiscountedRawPrice } from 'calypso/state/sites/plans/selectors';
+import { getPlanRawPrice } from 'calypso/state/plans/selectors';
 
 const identity = ( x ) => x;
 

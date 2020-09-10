@@ -1,10 +1,10 @@
 /**
  * Internal dependencies
  */
-import { shouldShowOfferResetFlow } from 'lib/abtest/getters';
-import { JETPACK_RESET_PLANS } from 'lib/plans/constants';
-import { JETPACK_PRODUCTS_LIST } from 'lib/products-values/constants';
-import { UPSELL_PRODUCT_MATRIX } from 'my-sites/plans-v2/constants';
+import { shouldShowOfferResetFlow } from 'calypso/lib/abtest/getters';
+import { JETPACK_RESET_PLANS } from 'calypso/lib/plans/constants';
+import { JETPACK_PRODUCTS_LIST } from 'calypso/lib/products-values/constants';
+import { UPSELL_PRODUCT_MATRIX } from 'calypso/my-sites/plans-v2/constants';
 export const JETPACK_CONNECT_TTL = 60 * 60 * 1000; // 1 hour
 export const JETPACK_CONNECT_TTL_SECONDS = JETPACK_CONNECT_TTL / 60;
 export const JETPACK_CONNECT_AUTHORIZE_TTL = 60 * 60 * 1000; // 1 hour

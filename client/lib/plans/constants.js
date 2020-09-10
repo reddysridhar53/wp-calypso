@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { shouldShowOfferResetFlow } from 'lib/abtest/getters';
+import { shouldShowOfferResetFlow } from 'calypso/lib/abtest/getters';
 import {
 	PRODUCT_JETPACK_BACKUP_DAILY,
 	PRODUCT_JETPACK_BACKUP_DAILY_MONTHLY,
@@ -13,7 +13,7 @@ import {
 	PRODUCT_JETPACK_ANTI_SPAM_MONTHLY,
 	PRODUCT_JETPACK_SEARCH,
 	PRODUCT_JETPACK_SEARCH_MONTHLY,
-} from 'lib/products-values/constants';
+} from 'calypso/lib/products-values/constants';
 
 // plans constants
 export const PLAN_BUSINESS_MONTHLY = 'business-bundle-monthly';

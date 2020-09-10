@@ -7,8 +7,8 @@ import { numberFormat, translate } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { isEnabled } from 'config';
-import { shouldShowOfferResetFlow } from 'lib/abtest/getters';
+import { isEnabled } from 'calypso/config';
+import { shouldShowOfferResetFlow } from 'calypso/lib/abtest/getters';
 import * as CONSTANTS from './constants.js';
 
 // Translatable strings

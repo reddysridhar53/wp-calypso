@@ -10,11 +10,11 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import AppPromo from 'blocks/app-promo';
-import { getCurrentUserLocale } from 'state/current-user/selectors';
-import QueryUserSettings from 'components/data/query-user-settings';
-import config from 'config';
-import getUserSetting from 'state/selectors/get-user-setting';
+import AppPromo from 'calypso/blocks/app-promo';
+import { getCurrentUserLocale } from 'calypso/state/current-user/selectors';
+import QueryUserSettings from 'calypso/components/data/query-user-settings';
+import config from 'calypso/config';
+import getUserSetting from 'calypso/state/selectors/get-user-setting';
 
 export const ReaderSidebarPromo = ( { currentUserLocale, shouldRenderAppPromo } ) => {
 	return (

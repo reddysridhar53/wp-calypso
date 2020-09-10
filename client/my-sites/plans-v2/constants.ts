@@ -17,7 +17,7 @@ import {
 	PRODUCT_JETPACK_BACKUP_REALTIME,
 	PRODUCT_JETPACK_BACKUP_REALTIME_MONTHLY,
 	JETPACK_BACKUP_PRODUCTS,
-} from 'lib/products-values/constants';
+} from 'calypso/lib/products-values/constants';
 import {
 	PLAN_JETPACK_COMPLETE,
 	PLAN_JETPACK_COMPLETE_MONTHLY,
@@ -41,13 +41,13 @@ import {
 	FEATURE_PRIORITY_SUPPORT_V2,
 	FEATURE_ONE_CLICK_RESTORE_V2,
 	FEATURE_SECURE_STORAGE_V2,
-} from 'lib/plans/constants';
+} from 'calypso/lib/plans/constants';
 import { buildCardFeaturesFromItem } from './utils';
 
 /**
  * Type dependencies
  */
-import type { JetpackRealtimePlan } from 'lib/plans/types';
+import type { JetpackRealtimePlan } from 'calypso/lib/plans/types';
 import type { SelectorProduct, SelectorProductSlug, ProductType } from './types';
 
 export const ALL = 'all';

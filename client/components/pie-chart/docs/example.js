@@ -7,10 +7,10 @@ import React, { Component } from 'react';
  * Internal dependencies
  */
 import { Button, Card } from '@automattic/components';
-import FormInputCheckbox from 'components/forms/form-checkbox';
-import FormLabel from 'components/forms/form-label';
-import PieChart from 'components/pie-chart';
-import PieChartLegend from 'components/pie-chart/legend';
+import FormInputCheckbox from 'calypso/components/forms/form-checkbox';
+import FormLabel from 'calypso/components/forms/form-label';
+import PieChart from 'calypso/components/pie-chart';
+import PieChartLegend from 'calypso/components/pie-chart/legend';
 
 class PieChartExample extends Component {
 	static displayName = 'PieChart';

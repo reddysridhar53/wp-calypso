@@ -13,13 +13,13 @@ import { get } from 'lodash';
  */
 
 import { Button } from '@automattic/components';
-import { hasProduct, siteRedirect } from 'lib/cart-values/cart-items';
-import { errorNotice } from 'state/notices/actions';
-import { canRedirect } from 'lib/domains';
-import DomainProductPrice from 'components/domains/domain-product-price';
-import { addItem } from 'lib/cart/actions';
-import { recordGoogleEvent } from 'state/analytics/actions';
-import { withoutHttp } from 'lib/url';
+import { hasProduct, siteRedirect } from 'calypso/lib/cart-values/cart-items';
+import { errorNotice } from 'calypso/state/notices/actions';
+import { canRedirect } from 'calypso/lib/domains';
+import DomainProductPrice from 'calypso/components/domains/domain-product-price';
+import { addItem } from 'calypso/lib/cart/actions';
+import { recordGoogleEvent } from 'calypso/state/analytics/actions';
+import { withoutHttp } from 'calypso/lib/url';
 
 /**
  * Style dependencies

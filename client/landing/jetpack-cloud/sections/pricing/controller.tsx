@@ -6,7 +6,7 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { hideMasterbar } from 'state/ui/actions';
+import { hideMasterbar } from 'calypso/state/ui/actions';
 import Header from './header';
 import JetpackComFooter from './jpcom-footer';
 

@@ -24,13 +24,13 @@ import {
 } from './utils';
 import QueryProducts from './query-products';
 import useIsLoading from './use-is-loading';
-import ProductCardPlaceholder from 'components/jetpack/card/product-card-placeholder';
-import FormattedHeader from 'components/formatted-header';
-import HeaderCake from 'components/header-cake';
-import Main from 'components/main';
-import { getCurrentUserCurrencyCode } from 'state/current-user/selectors';
-import { getSiteProducts } from 'state/sites/selectors';
-import { getSelectedSiteSlug, getSelectedSiteId } from 'state/ui/selectors';
+import ProductCardPlaceholder from 'calypso/components/jetpack/card/product-card-placeholder';
+import FormattedHeader from 'calypso/components/formatted-header';
+import HeaderCake from 'calypso/components/header-cake';
+import Main from 'calypso/components/main';
+import { getCurrentUserCurrencyCode } from 'calypso/state/current-user/selectors';
+import { getSiteProducts } from 'calypso/state/sites/selectors';
+import { getSelectedSiteSlug, getSelectedSiteId } from 'calypso/state/ui/selectors';
 import withRedirectToSelector from './with-redirect-to-selector';
 
 /**

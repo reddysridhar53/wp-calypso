@@ -6,9 +6,9 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import DocumentHead from 'components/data/document-head';
-import Main from 'components/main';
-import PageViewTracker from 'lib/analytics/page-view-tracker';
+import DocumentHead from 'calypso/components/data/document-head';
+import Main from 'calypso/components/main';
+import PageViewTracker from 'calypso/lib/analytics/page-view-tracker';
 import Masterbar from './masterbar';
 
 /**

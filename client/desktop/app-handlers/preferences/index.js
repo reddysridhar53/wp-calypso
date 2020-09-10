@@ -6,7 +6,7 @@ const { dialog, ipcMain: ipc } = require( 'electron' ); // eslint-disable-line i
 /**
  * Internal dependencies
  */
-const Settings = require( 'desktop/lib/settings' );
+const Settings = require( 'calypso/desktop/lib/settings' );
 
 function promptForRestart( title, message ) {
 	// Warn user they need to restart the app

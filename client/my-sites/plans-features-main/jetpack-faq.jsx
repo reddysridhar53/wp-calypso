@@ -8,11 +8,11 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import FAQ from 'components/faq';
-import FAQItem from 'components/faq/faq-item';
-import HappychatButton from 'components/happychat/button';
-import isHappychatAvailable from 'state/happychat/selectors/is-happychat-available';
-import { isEnabled } from 'config';
+import FAQ from 'calypso/components/faq';
+import FAQItem from 'calypso/components/faq/faq-item';
+import HappychatButton from 'calypso/components/happychat/button';
+import isHappychatAvailable from 'calypso/state/happychat/selectors/is-happychat-available';
+import { isEnabled } from 'calypso/config';
 
 const JetpackFAQ = ( { isChatAvailable, translate } ) => {
 	const helpLink =

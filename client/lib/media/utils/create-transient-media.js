@@ -6,9 +6,9 @@ import path from 'path';
 /**
  * Internal dependencies
  */
-import impureLodash from 'lib/impure-lodash';
-import { getFileExtension } from 'lib/media/utils/get-file-extension';
-import { getMimeType } from 'lib/media/utils/get-mime-type';
+import impureLodash from 'calypso/lib/impure-lodash';
+import { getFileExtension } from 'calypso/lib/media/utils/get-file-extension';
+import { getMimeType } from 'calypso/lib/media/utils/get-mime-type';
 
 const { uniqueId } = impureLodash;
 

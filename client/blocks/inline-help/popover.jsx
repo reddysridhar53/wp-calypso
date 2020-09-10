@@ -7,7 +7,7 @@ import { flowRight as compose, noop } from 'lodash';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import classNames from 'classnames';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 import { withMobileBreakpoint } from '@automattic/viewport-react';
 import { __ } from '@wordpress/i18n';
 
@@ -15,35 +15,35 @@ import { __ } from '@wordpress/i18n';
  * Internal Dependencies
  */
 import { VIEW_CONTACT, VIEW_RICH_RESULT } from './constants';
-import { selectResult, resetInlineHelpContactForm } from 'state/inline-help/actions';
+import { selectResult, resetInlineHelpContactForm } from 'calypso/state/inline-help/actions';
 import { Button } from '@automattic/components';
-import Popover from 'components/popover';
+import Popover from 'calypso/components/popover';
 import InlineHelpSearchResults from './inline-help-search-results';
 import InlineHelpSearchCard from './inline-help-search-card';
 import InlineHelpRichResult from './inline-help-rich-result';
-import getSearchQuery from 'state/inline-help/selectors/get-search-query';
-import getInlineHelpCurrentlySelectedResult from 'state/inline-help/selectors/get-inline-help-currently-selected-result';
-import { getHelpSelectedSite } from 'state/help/selectors';
-import QuerySupportTypes from 'blocks/inline-help/inline-help-query-support-types';
-import InlineHelpContactView from 'blocks/inline-help/inline-help-contact-view';
-import isEligibleForDotcomChecklist from 'state/selectors/is-eligible-for-dotcom-checklist';
-import { getSelectedSiteId, getSection } from 'state/ui/selectors';
-import getCurrentRoute from 'state/selectors/get-current-route';
-import { setSelectedEditor } from 'state/selected-editor/actions';
+import getSearchQuery from 'calypso/state/inline-help/selectors/get-search-query';
+import getInlineHelpCurrentlySelectedResult from 'calypso/state/inline-help/selectors/get-inline-help-currently-selected-result';
+import { getHelpSelectedSite } from 'calypso/state/help/selectors';
+import QuerySupportTypes from 'calypso/blocks/inline-help/inline-help-query-support-types';
+import InlineHelpContactView from 'calypso/blocks/inline-help/inline-help-contact-view';
+import isEligibleForDotcomChecklist from 'calypso/state/selectors/is-eligible-for-dotcom-checklist';
+import { getSelectedSiteId, getSection } from 'calypso/state/ui/selectors';
+import getCurrentRoute from 'calypso/state/selectors/get-current-route';
+import { setSelectedEditor } from 'calypso/state/selected-editor/actions';
 import {
 	composeAnalytics,
 	recordGoogleEvent,
 	recordTracksEvent,
 	withAnalytics,
 	bumpStat,
-} from 'state/analytics/actions';
-import getGutenbergEditorUrl from 'state/selectors/get-gutenberg-editor-url';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPostValue } from 'state/posts/selectors';
-import QueryActiveTheme from 'components/data/query-active-theme';
-import isGutenbergOptInEnabled from 'state/selectors/is-gutenberg-opt-in-enabled';
-import isGutenbergOptOutEnabled from 'state/selectors/is-gutenberg-opt-out-enabled';
-import inEditorDeprecationGroup from 'state/editor-deprecation-group/selectors/in-editor-deprecation-group';
+} from 'calypso/state/analytics/actions';
+import getGutenbergEditorUrl from 'calypso/state/selectors/get-gutenberg-editor-url';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPostValue } from 'calypso/state/posts/selectors';
+import QueryActiveTheme from 'calypso/components/data/query-active-theme';
+import isGutenbergOptInEnabled from 'calypso/state/selectors/is-gutenberg-opt-in-enabled';
+import isGutenbergOptOutEnabled from 'calypso/state/selectors/is-gutenberg-opt-out-enabled';
+import inEditorDeprecationGroup from 'calypso/state/editor-deprecation-group/selectors/in-editor-deprecation-group';
 
 class InlineHelpPopover extends Component {
 	static propTypes = {

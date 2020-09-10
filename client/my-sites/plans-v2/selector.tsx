@@ -8,22 +8,22 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import { recordTracksEvent } from 'state/analytics/actions/record';
+import { recordTracksEvent } from 'calypso/state/analytics/actions/record';
 import PlansFilterBar from './plans-filter-bar';
 import PlansColumn from './plans-column';
 import ProductsColumn from './products-column';
 import { SECURITY } from './constants';
 import { getProductUpsell, getPathToDetails, getPathToUpsell, checkout } from './utils';
 import QueryProducts from './query-products';
-import isJetpackCloud from 'lib/jetpack/is-jetpack-cloud';
-import { TERM_ANNUALLY } from 'lib/plans/constants';
-import { getSiteProducts } from 'state/sites/selectors';
-import { getSelectedSiteId, getSelectedSiteSlug } from 'state/ui/selectors';
-import { managePurchase } from 'me/purchases/paths';
-import Main from 'components/main';
-import QuerySitePurchases from 'components/data/query-site-purchases';
-import QuerySites from 'components/data/query-sites';
-import JetpackFreeCard from 'components/jetpack/card/jetpack-free-card';
+import isJetpackCloud from 'calypso/lib/jetpack/is-jetpack-cloud';
+import { TERM_ANNUALLY } from 'calypso/lib/plans/constants';
+import { getSiteProducts } from 'calypso/state/sites/selectors';
+import { getSelectedSiteId, getSelectedSiteSlug } from 'calypso/state/ui/selectors';
+import { managePurchase } from 'calypso/me/purchases/paths';
+import Main from 'calypso/components/main';
+import QuerySitePurchases from 'calypso/components/data/query-site-purchases';
+import QuerySites from 'calypso/components/data/query-sites';
+import JetpackFreeCard from 'calypso/components/jetpack/card/jetpack-free-card';
 
 /**
  * Type dependencies

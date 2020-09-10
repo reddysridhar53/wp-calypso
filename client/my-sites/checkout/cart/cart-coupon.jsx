@@ -11,8 +11,8 @@ import { localize } from 'i18n-calypso';
  * Internal dependencies
  */
 import { Button } from '@automattic/components';
-import { recordTracksEvent, recordGoogleEvent } from 'state/analytics/actions';
-import { applyCoupon, removeCoupon } from 'lib/cart/actions';
+import { recordTracksEvent, recordGoogleEvent } from 'calypso/state/analytics/actions';
+import { applyCoupon, removeCoupon } from 'calypso/lib/cart/actions';
 
 export class CartCoupon extends React.Component {
 	static displayName = 'CartCoupon';

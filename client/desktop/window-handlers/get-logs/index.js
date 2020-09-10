@@ -7,10 +7,10 @@ const { app, dialog } = require( 'electron' ); // eslint-disable-line import/no-
 /**
  * Internal dependencies
  */
-const state = require( 'desktop/lib/state' );
-const system = require( 'desktop/lib/system' );
-const { zipContents } = require( 'desktop/lib/archiver' );
-const log = require( 'desktop/lib/logger' )( 'desktop:get-logs' );
+const state = require( 'calypso/desktop/lib/state' );
+const system = require( 'calypso/desktop/lib/system' );
+const { zipContents } = require( 'calypso/desktop/lib/archiver' );
+const log = require( 'calypso/desktop/lib/logger' )( 'desktop:get-logs' );
 
 /**
  * Module variables

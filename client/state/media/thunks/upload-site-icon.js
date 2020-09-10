@@ -6,9 +6,9 @@ import uniqueId from 'lodash/uniqueId';
 /**
  * Internal dependencies
  */
-import { saveSiteSettings, updateSiteSettings } from 'state/site-settings/actions';
-import { errorNotice } from 'state/notices/actions';
-import { addMedia } from 'state/media/thunks/add-media';
+import { saveSiteSettings, updateSiteSettings } from 'calypso/state/site-settings/actions';
+import { errorNotice } from 'calypso/state/notices/actions';
+import { addMedia } from 'calypso/state/media/thunks/add-media';
 
 const updateSiteIcon = ( siteId, mediaId ) => updateSiteSettings( siteId, { site_icon: mediaId } );
 

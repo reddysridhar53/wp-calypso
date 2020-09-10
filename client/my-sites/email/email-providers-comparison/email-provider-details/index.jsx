@@ -9,8 +9,8 @@ import PropTypes from 'prop-types';
  */
 import { Button } from '@automattic/components';
 import EmailProviderFeature from './email-provider-feature';
-import PromoCard from 'components/promo-section/promo-card';
-import PromoCardPrice from 'components/promo-section/promo-card/price';
+import PromoCard from 'calypso/components/promo-section/promo-card';
+import PromoCardPrice from 'calypso/components/promo-section/promo-card/price';
 
 /**
  * Style dependencies
