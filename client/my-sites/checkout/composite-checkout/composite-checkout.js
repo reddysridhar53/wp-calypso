@@ -351,6 +351,9 @@ export default function CompositeCheckout( {
 			recordEvent( { type: 'PRODUCTS_ADD_ERROR', payload: message } )
 		);
 	} );
+	useActOnceOnStrings( [ cartLoadingError ].filter( Boolean ), ( messages ) => {
+		messages.forEach( ( message ) => recordEvent( { type: 'CART_ERROR', payload: message } ) );
+	} );
 	useActOnceOnStrings(
 		[ cartLoadingError, stripeLoadingError?.message, cartProductPrepError ].filter( Boolean ),
 		( messages ) => {
