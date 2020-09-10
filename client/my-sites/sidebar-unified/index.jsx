@@ -26,11 +26,14 @@ import MySitesSidebarUnifiedItem from './item';
 import MySitesSidebarUnifiedMenu from './menu';
 import Sidebar from 'layout/sidebar';
 
-import 'style.scss';
+import './style.scss';
 
 export const MySitesSidebarUnified = () => {
 	const reduxDispatch = useDispatch();
 	const selectedSite = useSelector( ( state ) => getSelectedSite( state ) );
+	useEffect( () => {
+		document.body.classList.add( 'nav-unification' );
+	}, [] );
 	useEffect( () => {
 		if ( selectedSite !== null && selectedSite.ID ) {
 			reduxDispatch( requestAdminMenu( selectedSite.ID ) );
