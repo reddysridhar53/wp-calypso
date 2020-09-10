@@ -81,6 +81,7 @@ import { isGSuiteProductSlug } from 'lib/gsuite';
 import useCachedDomainContactDetails from './hooks/use-cached-domain-contact-details';
 import CartMessages from 'my-sites/checkout/cart/cart-messages';
 import useActOnceOnStrings from './hooks/use-act-once-on-strings';
+import useEffectOnChange from './hooks/use-effect-on-change';
 
 const debug = debugFactory( 'calypso:composite-checkout:composite-checkout' );
 
@@ -207,6 +208,13 @@ export default function CompositeCheckout( {
 		getCart: getCart || wpcomGetCart,
 		onEvent: recordEvent,
 	} );
+
+	useEffectOnChange( () => {
+		recordEvent( {
+			type: 'CART_INIT_COMPLETE',
+			payload: responseCart,
+		} );
+	}, [ isLoadingCart ] );
 
 	const {
 		items,
