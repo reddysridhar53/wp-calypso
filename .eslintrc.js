@@ -223,7 +223,7 @@ module.exports = {
 		],
 		// Disabled for now until we finish the migration
 		'wpcalypso/no-package-relative-imports': [
-			'off',
+			'warn',
 			{
 				mappings: [
 					{
