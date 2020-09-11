@@ -196,6 +196,7 @@ export default function CompositeCheckout( {
 		isPendingUpdate: isCartPendingUpdate,
 		responseCart,
 		loadingError: cartLoadingError,
+		loadingErrorType: cartLoadingErrorType,
 		addItem,
 		variantSelectOverride,
 	} = useShoppingCartManager( {
@@ -374,7 +375,9 @@ export default function CompositeCheckout( {
 		);
 	} );
 	useActOnceOnStrings( [ cartLoadingError ].filter( Boolean ), ( messages ) => {
-		messages.forEach( ( message ) => recordEvent( { type: 'CART_ERROR', payload: message } ) );
+		messages.forEach( ( message ) =>
+			recordEvent( { type: 'CART_ERROR', payload: { type: cartLoadingErrorType, message } } )
+		);
 	} );
 	useActOnceOnStrings(
 		[ cartLoadingError, stripeLoadingError?.message, cartProductPrepError ].filter( Boolean ),
