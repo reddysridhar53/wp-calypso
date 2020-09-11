@@ -38,5 +38,8 @@ ENV        COMMIT_SHA $commit_sha
 ARG        workers
 RUN        WORKERS=$workers CALYPSO_ENV=production BUILD_TRANSLATION_CHUNKS=true yarn run build && rm -fr .cache
 
+# Remove the node_modules folder. It's big and is not needed to run the server.
+RUN        find . -name node_modules | xargs rm -fr
+
 USER       nobody
 CMD        NODE_ENV=production node build/bundle.js
