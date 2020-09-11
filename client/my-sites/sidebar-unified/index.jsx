@@ -28,7 +28,7 @@ import Sidebar from 'layout/sidebar';
 
 import './style.scss';
 
-export const MySitesSidebarUnified = () => {
+export const MySitesSidebarUnified = ( { path } ) => {
 	const reduxDispatch = useDispatch();
 	const selectedSite = useSelector( ( state ) => getSelectedSite( state ) );
 	useEffect( () => {
