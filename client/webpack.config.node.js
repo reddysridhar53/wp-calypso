@@ -92,6 +92,7 @@ const webpackConfig = {
 	output: {
 		path: buildDir,
 		filename: 'bundle.js',
+		chunkFilename: 'bundle.[name].js',
 	},
 	mode: isDevelopment ? 'development' : 'production',
 	optimization: {
