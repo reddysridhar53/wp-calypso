@@ -40,6 +40,8 @@ After some initial processing, the `NoteBody` component performs a switch statem
 
 Depending on the item's type, a different block component is rendered - `User` for a representation of a user (for instance, in a notification of a user liking a particular post), `Comment` for a comment made on a blog post, `Post` for a blog post (i.e. on a blog the user is following), `ReplyBlock` for a reply to a comment(?).
 
+<!--eslint ignore no-emphasis-as-heading-->
+
 _n.b. - these 'blocks' are separate from the concept of 'blocks' in the Gutenberg block editor; a notification might have multiple blocks (for instance, multiple `User` blocks for multiple likes on a post), or it might have a single `Post` block, which then further renders Gutenberg blocks as part of the post content._
 
 These notification block components will be your entry point for any modifications you need to do to the way a particular notification is rendered to the user.
@@ -70,7 +72,7 @@ Then copy the built `dist` folder to your sandbox environment to test updated re
 
 You can also use a syncing utility included as a `package.json` script in the notifications app to push changes to your sandbox site automatically.
 
-To prepare your sandbox for this purpose, follow the prerequisite setup instructions for adding an SSH alias for your sandbox described in PCYsg-ly5-p2 "Editing Toolkit plugin and your WP.com sandbox" (the process is exactly the same as that used for the FSE plugin). 
+To prepare your sandbox for this purpose, follow the prerequisite setup instructions for adding an SSH alias for your sandbox described in PCYsg-ly5-p2 "Editing Toolkit plugin and your WP.com sandbox" (the process is exactly the same as that used for the FSE plugin).
 
 Then, after making a change in the notification app, make sure you are `cd`'d into `/apps/notifications/` and run the command
 
