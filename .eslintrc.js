@@ -25,6 +25,7 @@ module.exports = {
 							'lint-no-literal-urls',
 							'lint-heading-increment',
 							'lint-no-heading-punctuation',
+							'lint-final-definition',
 
 							// This special plugin is used to allow the syntax <!--eslint ignore <rule>-->. It has to come last
 							[ 'message-control', { name: 'eslint', source: 'remark-lint' } ],
