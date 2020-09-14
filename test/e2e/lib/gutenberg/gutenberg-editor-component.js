@@ -276,7 +276,6 @@ export default class GutenbergEditorComponent extends AsyncBaseContainer {
 		let ariaLabel;
 		let prefix = '';
 		switch ( title ) {
-			case 'Instagram':
 			case 'Twitter':
 			case 'YouTube':
 				ariaLabel = 'Block: Embed';

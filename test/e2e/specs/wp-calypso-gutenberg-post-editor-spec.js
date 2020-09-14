@@ -1166,16 +1166,6 @@ describe( `[${ host }] Calypso Gutenberg Editor: Posts (${ screenSize })`, funct
 			const gEditorComponent = await GutenbergEditorComponent.Expect( driver );
 			await gEditorComponent.enterTitle( 'Embeds: ' + blogPostTitle );
 
-			this.instagramEditorSelector =
-				'.wp-block-embed iframe[title="Embedded content from instagram.com"]';
-			const blockIdInstagram = await gEditorComponent.addBlock( 'Instagram' );
-			const gEmbedsComponentInstagram = await EmbedsBlockComponent.Expect(
-				driver,
-				blockIdInstagram
-			);
-			await gEmbedsComponentInstagram.embedUrl( 'https://www.instagram.com/p/BlDOZMil933/' );
-			await gEmbedsComponentInstagram.isEmbeddedInEditor( this.instagramEditorSelector );
-
 			this.twitterEditorSelector = '.wp-block-embed iframe[title="Embedded content from twitter"]';
 			const blockIdTwitter = await gEditorComponent.addBlock( 'Twitter' );
 			const gEmbedsComponentTwitter = await EmbedsBlockComponent.Expect( driver, blockIdTwitter );
@@ -1204,10 +1194,8 @@ describe( `[${ host }] Calypso Gutenberg Editor: Posts (${ screenSize })`, funct
 			const viewPostPage = await ViewPostPage.Expect( driver );
 			this.youtubePostSelector = '.youtube-player';
 			await viewPostPage.embedContentDisplayed( this.youtubePostSelector ); // check YouTube content
-			this.instagramPostSelector = '.instagram-media-rendered';
-			await viewPostPage.embedContentDisplayed( this.instagramPostSelector ); // check Instagram content
-			this.instagramPostSelector = '.twitter-tweet-rendered';
-			return await viewPostPage.embedContentDisplayed( this.instagramPostSelector ); // check Twitter content
+			this.twitterTweetSelector = '.twitter-tweet-rendered';
+			return await viewPostPage.embedContentDisplayed( this.twitterTweetSelector ); // check Twitter content
 		} );
 
 		after( async function () {
